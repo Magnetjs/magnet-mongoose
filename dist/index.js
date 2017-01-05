@@ -26,13 +26,17 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _bluebird = require('bluebird');
+
+var _bluebird2 = _interopRequireDefault(_bluebird);
+
 var _forOwn = require('lodash/forOwn');
 
 var _forOwn2 = _interopRequireDefault(_forOwn);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -46,13 +50,13 @@ var Mongoose = function (_Base) {
   function Mongoose() {
     _classCallCheck(this, Mongoose);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Mongoose).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Mongoose.__proto__ || Object.getPrototypeOf(Mongoose)).apply(this, arguments));
   }
 
   _createClass(Mongoose, [{
     key: 'setup',
     value: function () {
-      var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+      var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
         var _this2 = this;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -65,6 +69,7 @@ var Mongoose = function (_Base) {
                   var config = _this2.app.config.connections.mongodb.default;
 
                   _this2.app.mongoose = _mongoose2.default.connect('mongodb://' + config.host + '/' + config.database);
+                  _this2.app.mongoose.Promise = _bluebird2.default;
 
                   var db = _this2.app.mongoose.connection;
                   db.on('error', function listenError(err) {
@@ -98,7 +103,7 @@ var Mongoose = function (_Base) {
       }));
 
       function setup() {
-        return ref.apply(this, arguments);
+        return _ref.apply(this, arguments);
       }
 
       return setup;
@@ -106,7 +111,7 @@ var Mongoose = function (_Base) {
   }, {
     key: 'start',
     value: function () {
-      var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
+      var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
         var _this3 = this;
 
         var folderPath, exists, files;
@@ -127,6 +132,7 @@ var Mongoose = function (_Base) {
 
                   (0, _forOwn2.default)(files, function (models) {
                     (0, _forOwn2.default)(models, function (model, modelName) {
+                      console.log(model(_this3.app, _mongoose2.default));
                       _this3.app.models[modelName] = model(_this3.app, _mongoose2.default);
                     });
                   });
@@ -141,7 +147,7 @@ var Mongoose = function (_Base) {
       }));
 
       function start() {
-        return ref.apply(this, arguments);
+        return _ref2.apply(this, arguments);
       }
 
       return start;

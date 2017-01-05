@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import fs from 'mz/fs';
 import requireAll from 'require-all';
 import path from 'path';
+import bluebird from 'bluebird';
 import forOwn from 'lodash/forOwn';
 
 export default class Mongoose extends Base {
@@ -12,6 +13,7 @@ export default class Mongoose extends Base {
         const config = this.app.config.connections.mongodb.default;
 
         this.app.mongoose = mongoose.connect(`mongodb://${config.host}/${config.database}`);
+        this.app.mongoose.Promise = bluebird;
 
         const db = this.app.mongoose.connection;
         db.on('error', function listenError(err) {
@@ -42,6 +44,7 @@ export default class Mongoose extends Base {
 
       forOwn(files, (models) => {
         forOwn(models, (model, modelName) => {
+          console.log(model(this.app, mongoose));
           this.app.models[modelName] = model(this.app, mongoose);
         });
       });

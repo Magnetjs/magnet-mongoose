@@ -1,6 +1,6 @@
 {
   "name": "magnet-mongoose",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Magnet's mongoose",
   "main": "dist/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "dist"
   ],
   "dependencies": {
+    "bluebird": "^3.4.7",
     "lodash": "^4.11.1",
     "magnet-core": "^1.2.0",
     "mongoose": "^4.4.13",
