@@ -66,7 +66,7 @@ var Mongoose = function (_Base) {
                 _context.prev = 0;
                 _context.next = 3;
                 return new Promise(function (resolve, reject) {
-                  var config = _this2.app.config.connections.mongodb.default;
+                  var config = _this2.app.config.mongoose;
 
                   _this2.app.mongoose = _mongoose2.default.connect('mongodb://' + config.host + '/' + config.database);
                   _this2.app.mongoose.Promise = _bluebird2.default;
@@ -132,7 +132,6 @@ var Mongoose = function (_Base) {
 
                   (0, _forOwn2.default)(files, function (models) {
                     (0, _forOwn2.default)(models, function (model, modelName) {
-                      console.log(model(_this3.app, _mongoose2.default));
                       _this3.app.models[modelName] = model(_this3.app, _mongoose2.default);
                     });
                   });
