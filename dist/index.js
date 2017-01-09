@@ -132,7 +132,7 @@ var Mongoose = function (_Base) {
 
                   (0, _forOwn2.default)(files, function (models) {
                     (0, _forOwn2.default)(models, function (model, modelName) {
-                      _this3.app.models[modelName] = model(_this3.app, _mongoose2.default);
+                      _this3.app.models[modelName] = model(_this3.app);
                     });
                   });
                 }
