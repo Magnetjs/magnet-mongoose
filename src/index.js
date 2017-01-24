@@ -19,10 +19,6 @@ export default class Mongoose extends Base {
           resolve(true)
         })
       })
-
-      if (!this.app.models) {
-        this.app.models = {}
-      }
     } catch (err) {
       this.app.log.error(err)
     }
