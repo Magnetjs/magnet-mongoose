@@ -1,6 +1,6 @@
 {
   "name": "magnet-mongoose",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Magnet's mongoose",
   "main": "dist/index.js",
   "scripts": {
@@ -25,11 +25,8 @@
   ],
   "dependencies": {
     "bluebird": "^3.4.7",
-    "lodash": "^4.11.1",
     "magnet-core": "^1.2.0",
-    "mongoose": "^4.4.13",
-    "mz": "^2.4.0",
-    "require-all": "^2.0.0"
+    "mongoose": "^4.4.13"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",

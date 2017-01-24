@@ -1,10 +1,6 @@
 import Base from 'magnet-core/dist/base'
 import mongoose from 'mongoose'
-import fs from 'mz/fs'
-import requireAll from 'require-all'
-import path from 'path'
 import bluebird from 'bluebird'
-import forOwn from 'lodash/forOwn'
 
 export default class Mongoose extends Base {
   async setup () {
@@ -29,24 +25,6 @@ export default class Mongoose extends Base {
       }
     } catch (err) {
       this.app.log.error(err)
-    }
-  }
-
-  async start () {
-    const folderPath = path.resolve(
-      process.cwd(),
-      this.config.modelPath || 'server/models'
-    )
-
-    const exists = await fs.exists(folderPath)
-    if (exists) {
-      const files = requireAll(folderPath)
-
-      forOwn(files, (models) => {
-        forOwn(models, (model, modelName) => {
-          this.app.models[modelName] = model(this.app)
-        })
-      })
     }
   }
 }

@@ -14,25 +14,9 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _fs = require('mz/fs');
-
-var _fs2 = _interopRequireDefault(_fs);
-
-var _requireAll = require('require-all');
-
-var _requireAll2 = _interopRequireDefault(_requireAll);
-
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
-
 var _bluebird = require('bluebird');
 
 var _bluebird2 = _interopRequireDefault(_bluebird);
-
-var _forOwn = require('lodash/forOwn');
-
-var _forOwn2 = _interopRequireDefault(_forOwn);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -107,49 +91,6 @@ var Mongoose = function (_Base) {
       }
 
       return setup;
-    }()
-  }, {
-    key: 'start',
-    value: function () {
-      var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
-        var _this3 = this;
-
-        var folderPath, exists, files;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                folderPath = _path2.default.resolve(process.cwd(), this.config.modelPath || 'server/models');
-                _context2.next = 3;
-                return _fs2.default.exists(folderPath);
-
-              case 3:
-                exists = _context2.sent;
-
-                if (exists) {
-                  files = (0, _requireAll2.default)(folderPath);
-
-
-                  (0, _forOwn2.default)(files, function (models) {
-                    (0, _forOwn2.default)(models, function (model, modelName) {
-                      _this3.app.models[modelName] = model(_this3.app);
-                    });
-                  });
-                }
-
-              case 5:
-              case 'end':
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function start() {
-        return _ref2.apply(this, arguments);
-      }
-
-      return start;
     }()
   }]);
 
