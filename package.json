@@ -1,6 +1,6 @@
 {
   "name": "magnet-mongoose",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Magnet's mongoose",
   "main": "dist/index.js",
   "scripts": {
