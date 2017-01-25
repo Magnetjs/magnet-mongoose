@@ -1,4 +1,4 @@
-import Base from 'magnet-core/dist/base'
+import Base from 'magnet-core/base'
 import mongoose from 'mongoose'
 import bluebird from 'bluebird'
 
