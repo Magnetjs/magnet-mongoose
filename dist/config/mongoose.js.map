@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/config/mongoose.js"],"names":["host","database"],"mappings":";;;;;kBAAe;AACbA,QAAM,WADO;AAEbC,YAAU;AAFG,C","file":"mongoose.js","sourcesContent":["export default {\n  host: 'localhost',\n  database: 'magnet-development'\n}\n"]}
