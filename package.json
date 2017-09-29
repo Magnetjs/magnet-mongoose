@@ -31,7 +31,9 @@
     "test": "babel-node tests/index.js | tap-spec",
     "watch": "nodemon --ignore dist --exec \"babel src\" --out-dir dist --source-maps",
     "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\"",
-    "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec"
+    "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "babel": {
     "ignore": [
@@ -57,7 +59,8 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "magnet-core": "^3.3.0",
-    "mongoose": "^4.8.2"
+    "mongoose": "^4.8.2",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -71,5 +74,6 @@
   },
   "engines": {
     "node": ">=6.9.5"
-  }
+  },
+  "snyk": true
 }
