@@ -1,4 +1,5 @@
 export default {
   host: 'localhost',
-  database: 'magnet-development'
+  database: 'magnet-development',
+  useMongoClient: true,
 }

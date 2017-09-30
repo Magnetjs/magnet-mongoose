@@ -11,7 +11,10 @@ export default class MagnetMongoose extends Module {
   async setup () {
     try {
       await new Promise((resolve, reject) => {
-        this.app.mongoose = mongoose.connect(`mongodb://${this.config.host}/${this.config.database}`)
+        this.app.mongoose = mongoose.connect(
+          `mongodb://${this.config.host}/${this.config.database}`,
+          this.config
+        )
         this.app.mongoose.Promise = bluebird
 
         const db = this.app.mongoose.connection
