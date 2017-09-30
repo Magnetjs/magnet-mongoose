@@ -1,16 +1,15 @@
 {
   "name": "magnet-mongoose",
-  "version": "4.0.3",
-  "description": "Magnet's mongoose",
+  "version": "4.0.4",
+  "description": "Magnet adapter for mongoose",
   "keywords": [
-    "db",
     "magnet",
     "magnetjs",
     "mongoose"
   ],
-  "homepage": "https://github.com/Magnetjs/magnet-mongoose#readme",
+  "homepage": "https://github.com/magnetjs/magnet-mongoose#readme",
   "bugs": {
-    "url": "https://github.com/Magnetjs/magnet-mongoose/issues"
+    "url": "https://github.com/magnetjs/magnet-mongoose/issues"
   },
   "license": "MIT",
   "author": "Kieve Chua <kievechua@gmail.com> (https://github.com/kievechua)",
@@ -20,39 +19,15 @@
     "dist"
   ],
   "main": "dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/Magnetjs/magnet-mongoose.git"
-  },
+  "repository": "magnetjs/magnet-mongoose",
   "scripts": {
-    "build": "babel src --out-dir dist --source-maps",
+    "build": "fly build",
     "dist": "npm run build && npm publish",
-    "start": "babel src --out-dir dist",
-    "test": "babel-node tests/index.js | tap-spec",
-    "watch": "nodemon --ignore dist --exec \"babel src\" --out-dir dist --source-maps",
-    "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\"",
-    "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec"
-  },
-  "babel": {
-    "ignore": [
-      "docs",
-      "node_modules",
-      "dist",
-      "test"
-    ],
-    "plugins": [
-      "fast-async"
-    ],
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
+    "start": "fly",
+    "test": "ts-node tests/index.js | tap-spec",
+    "watch": "tsc - w",
+    "watch-test": "nodemon --delay 0.5 --ignore src --exec ts-node tests/index.js | tap-spec",
+    "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\""
   },
   "dependencies": {
     "bluebird": "^3.4.7",
@@ -60,14 +35,11 @@
     "mongoose": "^4.8.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-preset-env": "^1.1.8",
-    "concurrently": "^3.3.0",
-    "fast-async": "^6.2.0",
-    "nodemon": "^1.9.1",
-    "standard": "^10.0.3",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.5.1"
+    "fly": "^2.0.5",
+    "fly-clear": "^1.0.1",
+    "fly-esnext": "^2.0.1",
+    "fly-typescript": "^1.0.0",
+    "fly-watch": "^1.1.1"
   },
   "engines": {
     "node": ">=6.9.5"
