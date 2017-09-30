@@ -28,7 +28,7 @@ class MagnetMongoose extends module_1.Module {
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield new Promise((resolve, reject) => {
+                yield new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
                     const _a = this.config, { uri } = _a, config = __rest(_a, ["uri"]);
                     this.insert(yield mongoose.connect(uri, config));
                     this.app.mongoose.Promise = bluebird;
@@ -39,7 +39,7 @@ class MagnetMongoose extends module_1.Module {
                     // db.once('open', function listenOpen (callback) {
                     //   resolve()
                     // })
-                });
+                }));
             }
             catch (err) {
                 this.app.log.error(err);
