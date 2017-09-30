@@ -1,6 +1,6 @@
 {
   "name": "magnet-mongoose",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Magnet adapter for mongoose",
   "keywords": [
     "magnet",
