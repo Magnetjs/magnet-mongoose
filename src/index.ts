@@ -1,6 +1,6 @@
 import { Module } from 'magnet-core/module'
-import mongoose from 'mongoose'
-import bluebird from 'bluebird'
+import * as mongoose from 'mongoose'
+import * as bluebird from 'bluebird'
 
 export default class MagnetMongoose extends Module {
   init () {
