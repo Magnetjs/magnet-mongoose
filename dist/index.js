@@ -4,9 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _base = require('magnet-core/base');
-
-var _base2 = _interopRequireDefault(_base);
+var _module = require('magnet-core/module');
 
 var _mongoose = require('mongoose');
 
@@ -307,9 +305,9 @@ Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-class Mongoose extends _base2.default {
+class MagnetMongoose extends _module.Module {
   init() {
-    this.moduleName = 'magnet_folder_loader';
+    this.moduleName = 'mongoose';
     this.defaultConfig = __dirname;
   }
 
@@ -336,5 +334,5 @@ class Mongoose extends _base2.default {
     })();
   }
 }
-exports.default = Mongoose;
+exports.default = MagnetMongoose;
 //# sourceMappingURL=index.js.map
