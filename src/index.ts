@@ -12,19 +12,19 @@ export default class MagnetMongoose extends Module {
     try {
       await new Promise((resolve, reject) => {
         const { uri, ...config } = this.config
-        this.app.mongoose = mongoose.connect(
+        this.insert(await mongoose.connect(
           uri,
           config
-        )
+        ))
         this.app.mongoose.Promise = bluebird
 
-        const db = this.app.mongoose.connection
-        db.on('error', function listenError (err) {
-          reject(err)
-        })
-        db.once('open', function listenOpen (callback) {
-          resolve()
-        })
+        // const db = this.app.mongoose.connection
+        // db.on('error', function listenError (err) {
+        //   reject(err)
+        // })
+        // db.once('open', function listenOpen (callback) {
+        //   resolve()
+        // })
       })
     } catch (err) {
       this.app.log.error(err)
