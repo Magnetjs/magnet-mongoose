@@ -18,8 +18,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
-const mongoose_1 = require("mongoose");
-const bluebird_1 = require("bluebird");
+const mongoose = require("mongoose");
+const bluebird = require("bluebird");
 class MagnetMongoose extends module_1.Module {
     init() {
         this.moduleName = 'mongoose';
@@ -30,8 +30,8 @@ class MagnetMongoose extends module_1.Module {
             try {
                 yield new Promise((resolve, reject) => {
                     const _a = this.config, { uri } = _a, config = __rest(_a, ["uri"]);
-                    this.app.mongoose = mongoose_1.default.connect(uri, config);
-                    this.app.mongoose.Promise = bluebird_1.default;
+                    this.app.mongoose = mongoose.connect(uri, config);
+                    this.app.mongoose.Promise = bluebird;
                     const db = this.app.mongoose.connection;
                     db.on('error', function listenError(err) {
                         reject(err);
