@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/config/mongoose.js"],"names":["uri","useMongoClient"],"mappings":";;;;;kBAAe;AACbA,OAAK,wCADQ;AAEbC,kBAAgB;AAFH,C","file":"mongoose.js","sourcesContent":["export default {\n  uri: 'mongodb://localhost/magnet-development',\n  useMongoClient: true,\n}\n"]}
+"{\"version\":3,\"file\":\"mongoose.js\",\"sourceRoot\":\"\",\"sources\":[\"../mongoose.ts\"],\"names\":[],\"mappings\":\";;AAAA,kBAAe;IACb,GAAG,EAAE,wCAAwC;IAC7C,cAAc,EAAE,IAAI;CACrB,CAAA\"}"

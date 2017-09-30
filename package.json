@@ -1,6 +1,10 @@
 {
   "name": "magnet-mongoose",
+<<<<<<< HEAD
   "version": "4.0.4",
+=======
+  "version": "4.0.5",
+>>>>>>> hotfix/4.0.5
   "description": "Magnet adapter for mongoose",
   "keywords": [
     "magnet",
