@@ -16,10 +16,6 @@ var _bluebird = require('bluebird');
 
 var _bluebird2 = _interopRequireDefault(_bluebird);
 
-var _mongoose3 = require('./config/mongoose');
-
-var _mongoose4 = _interopRequireDefault(_mongoose3);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
@@ -144,7 +140,10 @@ Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
 
         function callQueue() {
           while (fq.length - fqStart) {
-            fq[fqStart]();
+            try {
+              fq[fqStart]();
+            } catch (ex) {}
+
             fq[fqStart++] = undefined;
 
             if (fqStart === bufferSize) {
@@ -273,7 +272,7 @@ Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
         return z;
       };
 
-      Zousan.version = "2.3.2-nodent";
+      Zousan.version = "2.3.3-nodent";
       return Zousan;
     })();
   }
@@ -309,15 +308,18 @@ Function.prototype.$asyncbind = function $asyncbind(self, catcher) {
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 class Mongoose extends _base2.default {
+  init() {
+    this.moduleName = 'magnet_folder_loader';
+    this.defaultConfig = __dirname;
+  }
+
   setup() {
     var _this = this;
 
     return _asyncToGenerator(function* () {
       try {
         yield new Promise(function (resolve, reject) {
-          let config = Object.assign(_mongoose4.default, _this.config.mongoose, _this.options);
-
-          _this.app.mongoose = _mongoose2.default.connect(`mongodb://${config.host}/${config.database}`);
+          _this.app.mongoose = _mongoose2.default.connect(`mongodb://${_this.config.host}/${_this.config.database}`);
           _this.app.mongoose.Promise = _bluebird2.default;
 
           const db = _this.app.mongoose.connection;
