@@ -30,15 +30,15 @@ class MagnetMongoose extends module_1.Module {
             try {
                 yield new Promise((resolve, reject) => {
                     const _a = this.config, { uri } = _a, config = __rest(_a, ["uri"]);
-                    this.app.mongoose = mongoose.connect(uri, config);
+                    this.insert(yield mongoose.connect(uri, config));
                     this.app.mongoose.Promise = bluebird;
-                    const db = this.app.mongoose.connection;
-                    db.on('error', function listenError(err) {
-                        reject(err);
-                    });
-                    db.once('open', function listenOpen(callback) {
-                        resolve();
-                    });
+                    // const db = this.app.mongoose.connection
+                    // db.on('error', function listenError (err) {
+                    //   reject(err)
+                    // })
+                    // db.once('open', function listenOpen (callback) {
+                    //   resolve()
+                    // })
                 });
             }
             catch (err) {

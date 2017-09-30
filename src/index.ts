@@ -10,7 +10,7 @@ export default class MagnetMongoose extends Module {
 
   async setup () {
     try {
-      await new Promise((resolve, reject) => {
+      await new Promise(async (resolve, reject) => {
         const { uri, ...config } = this.config
         this.insert(await mongoose.connect(
           uri,
