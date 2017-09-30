@@ -1,10 +1,10 @@
-import Base from 'magnet-core/base'
+import { Module } from 'magnet-core/module'
 import mongoose from 'mongoose'
 import bluebird from 'bluebird'
 
-export default class Mongoose extends Base {
+export default class MagnetMongoose extends Module {
   init () {
-    this.moduleName = 'magnet_folder_loader'
+    this.moduleName = 'mongoose'
     this.defaultConfig = __dirname
   }
 
