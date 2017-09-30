@@ -1,6 +1,6 @@
 {
   "name": "magnet-mongoose",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Magnet's mongoose",
   "keywords": [
     "db",

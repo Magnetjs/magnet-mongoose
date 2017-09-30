@@ -317,7 +317,7 @@ class MagnetMongoose extends _module.Module {
     return _asyncToGenerator(function* () {
       try {
         yield new Promise(function (resolve, reject) {
-          _this.app.mongoose = _mongoose2.default.connect(`mongodb://${_this.config.host}/${_this.config.database}`);
+          _this.app.mongoose = _mongoose2.default.connect(`mongodb://${_this.config.host}/${_this.config.database}`, _this.config);
           _this.app.mongoose.Promise = _bluebird2.default;
 
           const db = _this.app.mongoose.connection;

@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   host: 'localhost',
-  database: 'magnet-development'
+  database: 'magnet-development',
+  useMongoClient: true
 };
 //# sourceMappingURL=mongoose.js.map
