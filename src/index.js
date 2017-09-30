@@ -1,15 +1,17 @@
 import Base from 'magnet-core/base'
 import mongoose from 'mongoose'
 import bluebird from 'bluebird'
-import defaultConfig from './config/mongoose'
 
 export default class Mongoose extends Base {
+  init () {
+    this.moduleName = 'magnet_folder_loader'
+    this.defaultConfig = __dirname
+  }
+
   async setup () {
     try {
       await new Promise((resolve, reject) => {
-        let config = Object.assign(defaultConfig, this.config.mongoose, this.options)
-
-        this.app.mongoose = mongoose.connect(`mongodb://${config.host}/${config.database}`)
+        this.app.mongoose = mongoose.connect(`mongodb://${this.config.host}/${this.config.database}`)
         this.app.mongoose.Promise = bluebird
 
         const db = this.app.mongoose.connection
