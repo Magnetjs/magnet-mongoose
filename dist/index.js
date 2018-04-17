@@ -28,11 +28,9 @@ class MagnetMongoose extends module_1.Module {
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-                    const _a = this.config, { uri } = _a, config = __rest(_a, ["uri"]);
-                    mongoose.Promise = bluebird;
-                    this.insert(yield mongoose.connect(uri, config));
-                }));
+                const _a = this.config, { uri } = _a, config = __rest(_a, ["uri"]);
+                mongoose.Promise = bluebird;
+                this.insert(yield mongoose.connect(uri, config));
             }
             catch (err) {
                 this.app.log.error(err);
