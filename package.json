@@ -34,8 +34,7 @@
     "mongoose": "^4.8.2"
   },
   "dependencies": {
-    "bluebird": "^3.4.7",
-    "magnet-core": "^4.0.3"
+    "bluebird": "^3.4.7"
   },
   "devDependencies": {
     "fly": "^2.0.5",
