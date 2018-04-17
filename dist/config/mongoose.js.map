@@ -1,1 +1,1 @@
-"{\"version\":3,\"file\":\"mongoose.js\",\"sourceRoot\":\"\",\"sources\":[\"../mongoose.ts\"],\"names\":[],\"mappings\":\";;AAAA,kBAAe;IACb,GAAG,EAAE,wCAAwC;IAC7C,cAAc,EAAE,IAAI;CACrB,CAAA\"}"
+"{\"version\":3,\"file\":\"mongoose.js\",\"sourceRoot\":\"\",\"sources\":[\"../mongoose.ts\"],\"names\":[],\"mappings\":\";;AAAA,qCAAoC;AAEpC,kBAAe;IACb,GAAG,EAAE,wCAAwC;IAC7C,cAAc,EAAE,IAAI;IACpB,cAAc,EAAE,QAAQ;CACzB,CAAA\"}"

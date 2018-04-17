@@ -29,10 +29,13 @@
     "watch-test": "nodemon --delay 0.5 --ignore src --exec ts-node tests/index.js | tap-spec",
     "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\""
   },
+  "peerDependencies": {
+    "magnet-core": "^4.0.1",
+    "mongoose": "^4.8.2"
+  },
   "dependencies": {
     "bluebird": "^3.4.7",
-    "magnet-core": "^4.0.3",
-    "mongoose": "^4.8.2"
+    "magnet-core": "^4.0.3"
   },
   "devDependencies": {
     "fly": "^2.0.5",
